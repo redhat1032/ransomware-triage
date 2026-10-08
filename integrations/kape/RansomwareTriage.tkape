@@ -1,0 +1,59 @@
+Description: Ransom notes and nearby evidence for ransomtriage
+Author: Douglas Weant
+Version: 1.0
+Id: 58a8d60d-d72b-45e0-9129-39ff1f66bede
+RecreateDirectories: true
+Targets:
+    -
+        Name: Ransom notes (readme-style text files)
+        Category: Ransomware
+        Path: C:\Users\
+        Recursive: true
+        FileMask: '*read*me*.txt'
+        MaxSize: 1048576
+        Comment: "Matches _readme.txt, README-RECOVER-*.txt, cAcTuS.readme.txt and similar"
+    -
+        Name: Ransom notes (recover text files)
+        Category: Ransomware
+        Path: C:\Users\
+        Recursive: true
+        FileMask: '*recover*.txt'
+        MaxSize: 1048576
+    -
+        Name: Ransom notes (restore text files)
+        Category: Ransomware
+        Path: C:\Users\
+        Recursive: true
+        FileMask: '*restore*.txt'
+        MaxSize: 1048576
+    -
+        Name: Ransom notes (how-to/decrypt instructions)
+        Category: Ransomware
+        Path: C:\Users\
+        Recursive: true
+        FileMask: '*decrypt*.txt'
+        MaxSize: 1048576
+    -
+        Name: Ransom notes (HTA)
+        Category: Ransomware
+        Path: C:\Users\
+        Recursive: true
+        FileMask: '*.hta'
+        MaxSize: 1048576
+    -
+        Name: Ransom notes in Public\Music
+        Category: Ransomware
+        Path: C:\Users\Public\Music\
+        FileMask: '*.txt'
+        MaxSize: 1048576
+        Comment: "CISA AA23-352A: Play places ReadMe.txt here"
+    -
+        Name: Ransom notes in the drive root
+        Category: Ransomware
+        Path: C:\
+        FileMask: '*.txt'
+        MaxSize: 1048576
+
+# Documentation
+# https://github.com/redhat1032/ransomware-triage
+# Collected notes can be processed offline with the RansomwareTriage module (or `ransomtriage scan <folder>`).

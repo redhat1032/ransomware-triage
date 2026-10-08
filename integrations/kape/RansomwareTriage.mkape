@@ -1,0 +1,20 @@
+Description: 'ransomtriage: offline ransomware family identification, IOC extraction and decryptor lookup'
+Category: Ransomware
+Author: Douglas Weant
+Version: 1.0
+Id: af95a288-9be4-4070-8201-895efd5985ed
+BinaryUrl: https://github.com/redhat1032/ransomware-triage/releases/download/v0.3.0/ransomtriage.pyz
+ExportFormat: json
+Processors:
+    -
+        Executable: C:\Windows\System32\cmd.exe
+        CommandLine: /c python "%kapeDirectory%\Modules\bin\ransomtriage.pyz" scan %sourceDirectory% --format json --no-entropy --output "%destinationDirectory%\ransomtriage.json"
+        ExportFormat: json
+    -
+        Executable: C:\Windows\System32\cmd.exe
+        CommandLine: /c python "%kapeDirectory%\Modules\bin\ransomtriage.pyz" scan %sourceDirectory% --format markdown --no-entropy --output "%destinationDirectory%\ransomtriage.md"
+        ExportFormat: md
+
+# Documentation
+# https://github.com/redhat1032/ransomware-triage
+# Requires Python 3.9+ on PATH. Place ransomtriage.pyz (from the GitHub release) in KAPE\Modules\bin\.

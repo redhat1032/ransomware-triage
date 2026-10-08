@@ -1,0 +1,1103 @@
+{
+  "schema_version": 2,
+  "catalog_updated": "2026-10-08",
+  "general_resources": [
+    {
+      "name": "Crypto Sheriff",
+      "provider": "No More Ransom (Europol, Dutch National Police and partners)",
+      "url": "https://www.nomoreransom.org/crypto-sheriff.php",
+      "notes": "Upload a ransom note and two encrypted files to check whether a free decryptor exists."
+    },
+    {
+      "name": "Decryption tools index",
+      "provider": "No More Ransom",
+      "url": "https://www.nomoreransom.org/en/decryption-tools.html",
+      "notes": "Authoritative list of free decryptors from law enforcement and security vendors."
+    },
+    {
+      "name": "ID Ransomware",
+      "provider": "MalwareHunterTeam",
+      "url": "https://id-ransomware.malwarehunterteam.com/",
+      "notes": "Online identification service (requires uploading a note or sample)."
+    },
+    {
+      "name": "#StopRansomware",
+      "provider": "CISA (US)",
+      "url": "https://www.cisa.gov/stopransomware",
+      "notes": "Advisories, the #StopRansomware Guide and response checklist."
+    },
+    {
+      "name": "Report an incident to CISA",
+      "provider": "CISA (US)",
+      "url": "https://www.cisa.gov/report",
+      "notes": "US incident reporting."
+    },
+    {
+      "name": "FBI Internet Crime Complaint Center (IC3)",
+      "provider": "FBI (US)",
+      "url": "https://www.ic3.gov/",
+      "notes": "US law-enforcement reporting; ask about available keys/decryptors."
+    },
+    {
+      "name": "Free ransomware decryption tools",
+      "provider": "Emsisoft",
+      "url": "https://www.emsisoft.com/en/ransomware-decryption/",
+      "notes": "Vendor decryptor catalogue."
+    },
+    {
+      "name": "Free ransomware decryption tools",
+      "provider": "Avast / Gen Digital",
+      "url": "https://www.avast.com/ransomware-decryption-tools",
+      "notes": "Vendor decryptor catalogue."
+    },
+    {
+      "name": "No Ransom",
+      "provider": "Kaspersky",
+      "url": "https://noransom.kaspersky.com/en/",
+      "notes": "Vendor decryptor catalogue."
+    }
+  ],
+  "decryptors": [
+    {
+      "id": "emsisoft-stop-djvu",
+      "name": "Emsisoft STOP Djvu Decryptor",
+      "provider": "Emsisoft",
+      "url": "https://www.emsisoft.com/en/ransomware-decryption/stop-djvu/",
+      "source_urls": [
+        "https://www.nomoreransom.org/en/decryption-tools.html#djvu",
+        "https://www.emsisoft.com/en/ransomware-decryption/stop-djvu/",
+        "https://www.bleepingcomputer.com/forums/t/671473/stop-ransomware-stop-djvu-puma-promo-support-topic/"
+      ],
+      "notes": "Decrypts files only if they were encrypted with an OFFLINE key that Emsisoft holds. Online-key files cannot be decrypted. Encrypted/original file pairs help only for old variants (before August 2019). BleepingComputer's STOP support topic says Emsisoft appears to have discontinued development and support of this decryptor.",
+      "last_verified": "2026-10-08"
+    },
+    {
+      "id": "npa-phobos-8base",
+      "name": "Phobos/8Base Decryptor (PhDec)",
+      "provider": "National Police Agency of Japan (via No More Ransom)",
+      "url": "https://www.npa.go.jp/english/bureau/cyber/ransomdamagerecovery.html",
+      "source_urls": [
+        "https://www.nomoreransom.org/en/decryption-tools.html#Phobos8base",
+        "https://www.npa.go.jp/english/bureau/cyber/document/PhDec_GuideLine_ver1.0_EN.pdf"
+      ],
+      "notes": "Released July 2025. Examples of supported extensions: .phobos, .8base, .elbie, .faust, .LIZARD. Files corrupted by failed or incomplete encryption cannot be decrypted, and the tool does not guarantee file integrity.",
+      "last_verified": "2026-10-08"
+    },
+    {
+      "id": "avast-mallox",
+      "name": "Avast Mallox Decryptor",
+      "provider": "Avast / Gen Digital",
+      "url": "https://www.gendigital.com/blog/insights/research/decrypted-mallox-ransomware",
+      "source_urls": [
+        "https://www.gendigital.com/blog/insights/research/decrypted-mallox-ransomware",
+        "https://www.securityweek.com/avast-releases-free-decryptor-for-mallox-ransomware/"
+      ],
+      "notes": "Only for Mallox variants active in 2023 to about February 2024 (.bitenc, .ma1x0, .mallab, .malox, .mallox, .malloxx, .xollam). The flaw was fixed around March 2024; later versions cannot be decrypted. Must run on the machine where files were encrypted.",
+      "last_verified": "2026-10-08"
+    },
+    {
+      "id": "avast-targetcompany",
+      "name": "Avast TargetCompany Decryptor",
+      "provider": "Avast / Gen Digital",
+      "url": "https://www.nomoreransom.org/en/decryption-tools.html#TargetCompany",
+      "source_urls": [
+        "https://www.nomoreransom.org/en/decryption-tools.html#TargetCompany",
+        "https://www.gendigital.com/blog/insights/research/decrypted-mallox-ransomware"
+      ],
+      "notes": "January 2022 decryptor for early TargetCompany (Mallox's predecessor). Stopped working after the actors fixed the flaw in February 2022.",
+      "last_verified": "2026-10-08"
+    },
+    {
+      "id": "avast-akira",
+      "name": "Avast Akira Decryptor",
+      "provider": "Avast / Gen Digital",
+      "url": "https://www.nomoreransom.org/en/decryption-tools.html#Akira",
+      "source_urls": [
+        "https://www.nomoreransom.org/en/decryption-tools.html#Akira",
+        "https://www.gendigital.com/blog/insights/research/decrypted-akira-ransomware"
+      ],
+      "notes": "Released June 2023 for the original C++ Akira (.akira). Not documented to work for the Megazord (.powerranges) or Akira_v2 (.akiranew/.aki) encryptors described by CISA.",
+      "last_verified": "2026-10-08"
+    },
+    {
+      "id": "avast-babuk",
+      "name": "Avast Babuk Decryptor",
+      "provider": "Avast / Gen Digital",
+      "url": "https://www.nomoreransom.org/en/decryption-tools.html#Babuk",
+      "source_urls": [
+        "https://www.nomoreransom.org/en/decryption-tools.html#Babuk",
+        "https://www.gendigital.com/blog/insights/research/avast-updates-babuk-ransomware-decryptor-in-cooperation-with-cisco-talos-and-dutch-police"
+      ],
+      "notes": "Uses leaked Babuk keys; updated with keys for the 'Tortilla' variant. Coverage depends on whether your key is known.",
+      "last_verified": "2026-10-08"
+    },
+    {
+      "id": "avast-bianlian",
+      "name": "Avast BianLian Decryptor",
+      "provider": "Avast / Gen Digital",
+      "url": "https://www.nomoreransom.org/en/decryption-tools.html#Bianlian",
+      "source_urls": [
+        "https://www.nomoreransom.org/en/decryption-tools.html#Bianlian",
+        "https://www.gendigital.com/blog/insights/research/decrypted-bianlian-ransomware"
+      ],
+      "notes": "For the legacy BianLian encryptor (.bianlian). Requires an original copy of one encrypted file. CISA reports BianLian moved to exfiltration-only extortion, so recent incidents may involve no encryption at all.",
+      "last_verified": "2026-10-08"
+    },
+    {
+      "id": "avast-rhysida",
+      "name": "Avast Rhysida Decryptor",
+      "provider": "Avast / Gen Digital",
+      "url": "https://www.nomoreransom.org/en/decryption-tools.html#Rhysida",
+      "source_urls": [
+        "https://www.nomoreransom.org/en/decryption-tools.html#Rhysida",
+        "https://www.gendigital.com/blog/insights/research/decrypted-rhysida-ransomware",
+        "https://www.bleepingcomputer.com/news/security/free-rhysida-ransomware-decryptor-for-windows-exploits-rng-flaw/"
+      ],
+      "notes": "Exploits a random-number flaw in the Windows encryptor. Reported not to decrypt files encrypted on VMware ESXi or by the PowerShell-based encryptor. Use /nodecrypt to test first.",
+      "last_verified": "2026-10-08"
+    },
+    {
+      "id": "kisa-rhysida",
+      "name": "KISA Rhysida Recovery Tool",
+      "provider": "KISA and Kookmin University (South Korea)",
+      "url": "https://seed.kisa.or.kr/kisa/Board/166/detailView.do",
+      "source_urls": [
+        "https://arxiv.org/html/2402.06440v1",
+        "https://www.bleepingcomputer.com/news/security/free-rhysida-ransomware-decryptor-for-windows-exploits-rng-flaw/"
+      ],
+      "notes": "Alternative Rhysida tool (Windows encryptor only), with English and Korean manuals.",
+      "last_verified": "2026-10-08"
+    },
+    {
+      "id": "kisa-hive",
+      "name": "KISA Hive (v1 to v4) Decryptor",
+      "provider": "KISA (South Korea)",
+      "url": "https://www.nomoreransom.org/en/decryption-tools.html#Hivev1tov4",
+      "source_urls": [
+        "https://www.nomoreransom.org/en/decryption-tools.html#Hivev1tov4"
+      ],
+      "notes": "Covers Hive versions 1 to 4 only.",
+      "last_verified": "2026-10-08"
+    },
+    {
+      "id": "bitdefender-gandcrab",
+      "name": "Bitdefender GandCrab Decryption Tool",
+      "provider": "Bitdefender",
+      "url": "https://www.nomoreransom.org/en/decryption-tools.html#GandCrabV1V4andV5uptoV52versions",
+      "source_urls": [
+        "https://www.nomoreransom.org/en/decryption-tools.html#GandCrabV1V4andV5uptoV52versions"
+      ],
+      "notes": "No More Ransom lists support for GandCrab V1, V4 and V5 up to V5.2. Other versions (e.g. V2/V3, .CRAB) are not covered.",
+      "last_verified": "2026-10-08"
+    },
+    {
+      "id": "bitdefender-revil",
+      "name": "Bitdefender REvil/Sodinokibi Universal Decryptor",
+      "provider": "Bitdefender",
+      "url": "https://www.nomoreransom.org/en/decryption-tools.html#REvilSodinokibi",
+      "source_urls": [
+        "https://www.nomoreransom.org/en/decryption-tools.html#REvilSodinokibi",
+        "https://www.bitdefender.com/en-us/blog/labs/bitdefender-offers-free-universal-decryptor-for-revil-sodinokibi-ransomware"
+      ],
+      "notes": "Only for files encrypted before July 13, 2021.",
+      "last_verified": "2026-10-08"
+    },
+    {
+      "id": "avaddon-decryptors",
+      "name": "Avaddon Decryptors (Bitdefender, Emsisoft)",
+      "provider": "Bitdefender / Emsisoft",
+      "url": "https://www.nomoreransom.org/en/decryption-tools.html#Avaddon",
+      "source_urls": [
+        "https://www.nomoreransom.org/en/decryption-tools.html#Avaddon",
+        "https://www.emsisoft.com/en/ransomware-decryption/avaddon/"
+      ],
+      "notes": "Avaddon appends a random extension. Free decryptors are listed by No More Ransom.",
+      "last_verified": "2026-10-08"
+    },
+    {
+      "id": "kaspersky-rakhni",
+      "name": "Kaspersky Rakhni Decryptor",
+      "provider": "Kaspersky",
+      "url": "https://www.nomoreransom.org/en/decryption-tools.html#Dharma",
+      "source_urls": [
+        "https://www.nomoreransom.org/en/decryption-tools.html#Dharma",
+        "https://www.nomoreransom.org/en/decryption-tools.html#CrySIS"
+      ],
+      "notes": "Listed by No More Ransom for Dharma and CrySIS (CrySIS is also covered by Trend Micro's tool). Coverage depends on whether the variant's keys are known.",
+      "last_verified": "2026-10-08"
+    },
+    {
+      "id": "jp-police-lockbit-checker",
+      "name": "LockBit 3.0 Decryption ID Checker",
+      "provider": "Japanese Police (via No More Ransom)",
+      "url": "https://www.nomoreransom.org/en/decryption-tools.html#Lockbit30",
+      "source_urls": [
+        "https://www.nomoreransom.org/en/decryption-tools.html#Lockbit30"
+      ],
+      "notes": "Checks whether your LockBit 3.0 decryption ID matches keys recovered by law enforcement. Most victims will not be covered.",
+      "last_verified": "2026-10-08"
+    },
+    {
+      "id": "srlabs-black-basta-buster",
+      "name": "Black Basta Buster",
+      "provider": "SR Labs",
+      "url": "https://github.com/srlabs/black-basta-buster",
+      "source_urls": [
+        "https://www.nomoreransom.org/en/decryption-tools.html#BlackBasta",
+        "https://github.com/srlabs/black-basta-buster"
+      ],
+      "notes": "Targets a weakness in the Black Basta strain used around April 2023. Needs 64 known plaintext bytes in an encrypted region; files under 5,000 bytes cannot be recovered. Technical tooling that may need manual work.",
+      "last_verified": "2026-10-08"
+    },
+    {
+      "id": "wanakiwi",
+      "name": "wanakiwi (memory key recovery)",
+      "provider": "Benjamin Delpy (gentilkiwi)",
+      "url": "https://github.com/gentilkiwi/wanakiwi",
+      "source_urls": [
+        "https://github.com/gentilkiwi/wanakiwi"
+      ],
+      "notes": "Can rebuild the key only if the WannaCry process memory still holds the prime numbers: the machine must NOT have been rebooted, and success is not guaranteed. The author documents Windows XP and Windows 7.",
+      "last_verified": "2026-10-08"
+    },
+    {
+      "id": "responders-deadbolt",
+      "name": "DeadBolt key lookup (Responders.NU / Dutch Police)",
+      "provider": "Responders.NU with Dutch National Police",
+      "url": "https://www.bleepingcomputer.com/news/security/police-tricks-deadbolt-ransomware-out-of-155-decryption-keys/",
+      "source_urls": [
+        "https://www.bleepingcomputer.com/news/security/police-tricks-deadbolt-ransomware-out-of-155-decryption-keys/",
+        "https://therecord.media/dutch-police-obtain-155-decryption-keys-for-deadbolt-ransomware-victims"
+      ],
+      "notes": "Police obtained 155 DeadBolt keys in 2022 and contacted affected victims. The original lookup site (deadbolt.responders.nu) was unreachable on 2026-10-08. Most DeadBolt victims are not covered; ask the Dutch police or your national CERT.",
+      "last_verified": "2026-10-08"
+    }
+  ],
+  "signatures": [
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "STOP/Djvu",
+      "aliases": [
+        "Djvu",
+        "STOP"
+      ],
+      "decryptability_status": "PARTIAL_OR_OFFLINE_ONLY",
+      "exfiltration_risk": "unknown",
+      "note_filenames": [
+        "_readme.txt",
+        "_openme.txt",
+        "_open_.txt"
+      ],
+      "note_keywords": [
+        "attention! don't worry my friend, you can return all your files",
+        "the only method of recovering files is to purchase decrypt tool and unique key for you"
+      ],
+      "self_names": [],
+      "extensions": [
+        ".djvu"
+      ],
+      "decryptors": [
+        "emsisoft-stop-djvu"
+      ],
+      "summary": "Mostly hits home users. Personal IDs ending in 't1' are usually offline IDs. Emsisoft can decrypt those only if it holds that specific offline key, and online-key files cannot be decrypted. Variants use many different 4-letter extensions.",
+      "preserve_advice": "Keep _readme.txt and the personal ID. Don't rename or delete encrypted files; keys are sometimes recovered later.",
+      "sources": [
+        "https://www.emsisoft.com/en/ransomware-decryption/stop-djvu/",
+        "https://www.bleepingcomputer.com/forums/t/671473/stop-ransomware-stop-djvu-puma-promo-support-topic/"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "LockBit",
+      "aliases": [
+        "LockBit 2.0",
+        "LockBit 3.0",
+        "LockBit Black"
+      ],
+      "decryptability_status": "LEAKED_KEY_SET",
+      "exfiltration_risk": "high",
+      "note_filenames": [
+        "restore-my-files.txt",
+        "*.readme.txt"
+      ],
+      "note_keywords": [],
+      "self_names": [
+        "lockbit"
+      ],
+      "extensions": [
+        ".lockbit"
+      ],
+      "decryptors": [
+        "jp-police-lockbit-checker"
+      ],
+      "summary": "LockBit 2.0 drops Restore-My-Files.txt. LockBit 3.0 drops <ID>.README.txt and uses a random extension. Law enforcement recovered some LockBit 3.0 keys, so check your decryption ID with the No More Ransom checker.",
+      "preserve_advice": "Preserve notes, the decryption ID, wallpaper/branding artefacts and network logs (data theft is common).",
+      "sources": [
+        "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-075a",
+        "https://www.ic3.gov/CSA/2022/220204.pdf"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "Akira",
+      "aliases": [
+        "Megazord",
+        "Akira_v2"
+      ],
+      "decryptability_status": "PARTIAL_OR_OFFLINE_ONLY",
+      "exfiltration_risk": "high",
+      "note_filenames": [
+        "akira_readme.txt",
+        "akiranew.txt",
+        "fn.txt"
+      ],
+      "note_keywords": [],
+      "self_names": [
+        "akira"
+      ],
+      "extensions": [
+        ".akira",
+        ".powerranges",
+        ".akiranew",
+        ".aki"
+      ],
+      "decryptors": [
+        "avast-akira"
+      ],
+      "summary": "Avast's 2023 decryptor covers only the original .akira encryptor. No free decryptor is known for Megazord (.powerranges) or Akira_v2 (.akiranew/.aki).",
+      "preserve_advice": "Record which extension was used; it determines whether the Avast tool can apply. Preserve notes and VPN/remote-access logs.",
+      "sources": [
+        "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-109a",
+        "https://www.gendigital.com/blog/insights/research/decrypted-akira-ransomware"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "BlackCat / ALPHV",
+      "aliases": [
+        "ALPHV",
+        "Noberus",
+        "BlackCat"
+      ],
+      "decryptability_status": "NONE_KNOWN",
+      "exfiltration_risk": "high",
+      "note_filenames": [
+        "recover-* files.txt"
+      ],
+      "note_keywords": [],
+      "self_names": [
+        "alphv",
+        "blackcat"
+      ],
+      "extensions": [],
+      "decryptors": [],
+      "summary": "No free decryptor is publicly available. In December 2023 the FBI developed a decryption tool and offered it to 500+ victims through law enforcement, so report to the FBI/IC3 and ask. Encrypted files get a random seven-character extension.",
+      "preserve_advice": "Preserve the RECOVER-<ext>-FILES.txt note and evidence of data theft.",
+      "sources": [
+        "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-353a",
+        "https://www.bleepingcomputer.com/news/security/fbi-disrupts-blackcat-ransomware-operation-creates-decryption-tool/"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "Black Basta",
+      "aliases": [
+        "BlackBasta"
+      ],
+      "decryptability_status": "PARTIAL_OR_OFFLINE_ONLY",
+      "exfiltration_risk": "high",
+      "note_filenames": [],
+      "note_keywords": [
+        "basta news"
+      ],
+      "self_names": [
+        "black basta",
+        "blackbasta"
+      ],
+      "extensions": [
+        ".basta"
+      ],
+      "decryptors": [
+        "srlabs-black-basta-buster"
+      ],
+      "summary": "SR Labs' Black Basta Buster can recover some files from the strain used around April 2023 (needs known plaintext). Later builds: no free decryptor known. Notes are usually named readme.txt.",
+      "preserve_advice": "Keep encrypted VM disk images intact; they are the best candidates for known-plaintext recovery.",
+      "sources": [
+        "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-131a",
+        "https://github.com/srlabs/black-basta-buster"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "Phobos / 8Base",
+      "aliases": [
+        "8Base",
+        "Elbie",
+        "Faust",
+        "Eking",
+        "Devos"
+      ],
+      "decryptability_status": "AVAILABLE",
+      "exfiltration_risk": "unknown",
+      "note_filenames": [
+        "info.hta"
+      ],
+      "note_keywords": [],
+      "self_names": [
+        "phobos",
+        "8base"
+      ],
+      "extensions": [
+        ".phobos",
+        ".8base",
+        ".elbie",
+        ".faust",
+        ".lizard"
+      ],
+      "decryptors": [
+        "npa-phobos-8base"
+      ],
+      "summary": "Japan's National Police Agency published a free Phobos/8Base decryptor (July 2025, distributed via No More Ransom). Corrupted or incompletely encrypted files can't be recovered.",
+      "preserve_advice": "Keep full encrypted filenames (they embed an ID and contact email). Remove the active malware before decrypting.",
+      "sources": [
+        "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-060a",
+        "https://www.npa.go.jp/english/bureau/cyber/document/PhDec_GuideLine_ver1.0_EN.pdf",
+        "https://www.nomoreransom.org/en/decryption-tools.html#Phobos8base"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [
+        "\\.id-[0-9a-f]{8}\\.\\[[^\\]]+@[^\\]]+\\]\\.[a-z0-9]+$"
+      ],
+      "weak_extensions": [],
+      "family": "Dharma / CrySIS",
+      "aliases": [
+        "Dharma",
+        "CrySIS"
+      ],
+      "decryptability_status": "AVAILABLE",
+      "exfiltration_risk": "unknown",
+      "note_filenames": [
+        "files encrypted.txt",
+        "info.hta"
+      ],
+      "note_keywords": [],
+      "self_names": [
+        "dharma",
+        "crysis"
+      ],
+      "extensions": [],
+      "decryptors": [
+        "kaspersky-rakhni"
+      ],
+      "summary": "Encrypted names look like file.id-<ID>.[email].<ext>. Kaspersky Rakhni (and Trend Micro for CrySIS) decrypt variants whose keys are known. Many newer variants are not covered.",
+      "preserve_advice": "Do not rename files; the ID and email in the name identify the variant.",
+      "sources": [
+        "https://www.fortinet.com/blog/threat-research/dharma-ransomware--what-it-s-teaching-us",
+        "https://www.nomoreransom.org/en/decryption-tools.html#Dharma",
+        "https://www.nomoreransom.org/en/decryption-tools.html#CrySIS"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "Play",
+      "aliases": [
+        "PlayCrypt"
+      ],
+      "decryptability_status": "NONE_KNOWN",
+      "exfiltration_risk": "high",
+      "note_filenames": [
+        "play_readme.txt"
+      ],
+      "note_keywords": [],
+      "self_names": [],
+      "extensions": [
+        ".play"
+      ],
+      "decryptors": [],
+      "summary": "No free decryptor known. Notes (ReadMe.txt, PLAY_Readme.txt on ESXi) usually give only an @gmx.de or @web.de contact email. ransomtriage has no distinctive note text for Play, so a Play match is always reported as unconfirmed.",
+      "preserve_advice": "Preserve notes in C:\\Users\\Public\\Music and evidence of exfiltration.",
+      "sources": [
+        "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-352a"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "Babuk",
+      "aliases": [
+        "Babyk"
+      ],
+      "decryptability_status": "AVAILABLE",
+      "exfiltration_risk": "high",
+      "note_filenames": [
+        "how to restore your files.txt"
+      ],
+      "note_keywords": [],
+      "self_names": [
+        "babuk",
+        "babyk"
+      ],
+      "extensions": [
+        ".babyk"
+      ],
+      "decryptors": [
+        "avast-babuk"
+      ],
+      "summary": "Avast's decryptor uses leaked keys (updated for the Tortilla variant). Leaked Babuk source code is reused by other groups, whose files may not be covered. RansomHub notes use the same file name, so the name alone isn't conclusive.",
+      "preserve_advice": "Test the decryptor on copies first.",
+      "sources": [
+        "https://cyberint.com/blog/research/babuk-locker/",
+        "https://www.gendigital.com/blog/insights/research/avast-updates-babuk-ransomware-decryptor-in-cooperation-with-cisco-talos-and-dutch-police",
+        "https://www.nomoreransom.org/en/decryption-tools.html#Babuk"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "Hive",
+      "aliases": [
+        "Hive ransomware"
+      ],
+      "decryptability_status": "AVAILABLE",
+      "exfiltration_risk": "high",
+      "note_filenames": [
+        "how_to_decrypt.txt"
+      ],
+      "note_keywords": [
+        "hiveleaks"
+      ],
+      "self_names": [],
+      "extensions": [],
+      "decryptors": [
+        "kisa-hive"
+      ],
+      "summary": "KISA's free decryptor covers Hive versions 1 to 4. Hive's infrastructure was taken down by law enforcement in 2023.",
+      "preserve_advice": "Keep the *.key file(s) in the drive root; the note warns they are needed for decryption.",
+      "sources": [
+        "https://www.cisa.gov/news-events/cybersecurity-advisories/aa22-321a",
+        "https://www.nomoreransom.org/en/decryption-tools.html#Hivev1tov4"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [
+        ".locked"
+      ],
+      "family": "Hunters International",
+      "aliases": [
+        "World Leaks (successor)"
+      ],
+      "decryptability_status": "NONE_KNOWN",
+      "exfiltration_risk": "high",
+      "note_filenames": [
+        "contact us.txt",
+        "read me now!.txt"
+      ],
+      "note_keywords": [],
+      "self_names": [
+        "hunters international"
+      ],
+      "extensions": [],
+      "decryptors": [],
+      "summary": "A separate operation built on purchased Hive code, so Hive decryptors do NOT apply. No free decryptor from a security vendor or law enforcement is known. In July 2025 the operators said they would hand out decryptors themselves; get IR or law-enforcement help before dealing with criminals.",
+      "preserve_advice": "Preserve notes (they contain victim-specific portal credentials) and exfiltration evidence.",
+      "sources": [
+        "https://www.bleepingcomputer.com/news/security/new-hunters-international-ransomware-possible-rebrand-of-hive/",
+        "https://www.bleepingcomputer.com/news/security/hunters-international-ransomware-shuts-down-after-world-leaks-rebrand/",
+        "https://cert.orange.pl/wp-content/uploads/2024/11/CERTOPL_CTI_Hunters_International_en.pdf"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "Rhysida",
+      "aliases": [],
+      "decryptability_status": "AVAILABLE",
+      "exfiltration_risk": "high",
+      "note_filenames": [
+        "criticalbreachdetected.pdf"
+      ],
+      "note_keywords": [],
+      "self_names": [
+        "rhysida"
+      ],
+      "extensions": [
+        ".rhysida"
+      ],
+      "decryptors": [
+        "avast-rhysida",
+        "kisa-rhysida"
+      ],
+      "summary": "Free decryptors (Avast, KISA) exploit a flaw in the Windows encryptor. Reported not to work for ESXi- or PowerShell-encrypted files.",
+      "preserve_advice": "Run decryptors in test mode first (Avast: /nodecrypt).",
+      "sources": [
+        "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-319a",
+        "https://www.gendigital.com/blog/insights/research/decrypted-rhysida-ransomware",
+        "https://www.bleepingcomputer.com/news/security/free-rhysida-ransomware-decryptor-for-windows-exploits-rng-flaw/"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "BianLian",
+      "aliases": [],
+      "decryptability_status": "PARTIAL_OR_OFFLINE_ONLY",
+      "exfiltration_risk": "high",
+      "note_filenames": [
+        "look at this instruction.txt"
+      ],
+      "note_keywords": [
+        "your network systems were attacked and encrypted"
+      ],
+      "self_names": [
+        "bianlian"
+      ],
+      "extensions": [
+        ".bianlian"
+      ],
+      "decryptors": [
+        "avast-bianlian"
+      ],
+      "summary": "Avast's decryptor covers the legacy .bianlian encryptor and needs an original/encrypted file pair. CISA reports a shift to exfiltration-only extortion.",
+      "preserve_advice": "Find an unencrypted original of at least one encrypted file. Investigate data theft.",
+      "sources": [
+        "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-136a",
+        "https://www.gendigital.com/blog/insights/research/decrypted-bianlian-ransomware"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "Mallox / TargetCompany",
+      "aliases": [
+        "Mallox",
+        "TargetCompany",
+        "Xollam"
+      ],
+      "decryptability_status": "PARTIAL_OR_OFFLINE_ONLY",
+      "exfiltration_risk": "unknown",
+      "note_filenames": [
+        "file recovery.txt",
+        "how to back files.txt",
+        "how to restore files.txt"
+      ],
+      "note_keywords": [],
+      "self_names": [
+        "mallox",
+        "targetcompany"
+      ],
+      "extensions": [
+        ".bitenc",
+        ".ma1x0",
+        ".mallab",
+        ".malox",
+        ".mallox",
+        ".malloxx",
+        ".xollam"
+      ],
+      "decryptors": [
+        "avast-mallox",
+        "avast-targetcompany"
+      ],
+      "summary": "Avast's Mallox decryptor covers variants from 2023 to about February 2024. Versions after the March 2024 fix cannot be decrypted.",
+      "preserve_advice": "Don't reinstall Windows; the Avast tool must run on the machine where encryption happened.",
+      "sources": [
+        "https://www.gendigital.com/blog/insights/research/decrypted-mallox-ransomware"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "Makop",
+      "aliases": [],
+      "decryptability_status": "NONE_KNOWN",
+      "exfiltration_risk": "unknown",
+      "note_filenames": [
+        "readme-warning.txt"
+      ],
+      "note_keywords": [],
+      "self_names": [
+        "makop"
+      ],
+      "extensions": [
+        ".makop"
+      ],
+      "decryptors": [],
+      "summary": "No free decryptor known. Encrypted names usually embed a victim ID and an attacker email.",
+      "preserve_advice": "Keep the note and encrypted filenames intact.",
+      "sources": [
+        "https://www.trendmicro.com/vinfo/us/threat-encyclopedia/malware/ransom.win32.makop.sm"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "DeadBolt",
+      "aliases": [],
+      "decryptability_status": "LEAKED_KEY_SET",
+      "exfiltration_risk": "unknown",
+      "note_filenames": [],
+      "note_keywords": [
+        "your files have been locked by deadbolt"
+      ],
+      "self_names": [
+        "deadbolt"
+      ],
+      "extensions": [
+        ".deadbolt"
+      ],
+      "decryptors": [
+        "responders-deadbolt"
+      ],
+      "summary": "Targets QNAP/Asustor NAS devices and replaces the admin page with a ransom screen. Dutch police obtained 155 keys in 2022; there is no general decryptor. QNAP documents how to reach the admin page.",
+      "preserve_advice": "Don't factory-reset the NAS. Follow QNAP's DeadBolt guidance and check the key lookup.",
+      "sources": [
+        "https://www.bleepingcomputer.com/news/security/new-deadbolt-ransomware-targets-qnap-devices-asks-50-btc-for-master-key/",
+        "https://www.qnap.com/en-us/how-to/faq/article/what-should-i-do-if-i-found-the-nas-encrypted-by-deadbolt",
+        "https://www.bleepingcomputer.com/news/security/police-tricks-deadbolt-ransomware-out-of-155-decryption-keys/"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "WannaCry",
+      "aliases": [
+        "WannaCrypt",
+        "WanaCrypt0r",
+        "WCry"
+      ],
+      "decryptability_status": "PARTIAL_OR_OFFLINE_ONLY",
+      "exfiltration_risk": "unknown",
+      "note_filenames": [
+        "@please_read_me@.txt",
+        "@wanadecryptor@.exe"
+      ],
+      "note_keywords": [],
+      "self_names": [
+        "wannacry",
+        "wanacryptor",
+        "wanacrypt0r",
+        "wanadecryptor"
+      ],
+      "extensions": [
+        ".wncry"
+      ],
+      "decryptors": [
+        "wanakiwi"
+      ],
+      "summary": "No universal decryptor. wanakiwi can sometimes rebuild the key from memory, but only if the machine has NOT been rebooted (documented for Windows XP and 7).",
+      "preserve_advice": "Do not reboot or power off before trying memory-based recovery. Isolate from the network (spreads via SMBv1/MS17-010).",
+      "sources": [
+        "https://www.microsoft.com/en-us/security/blog/2017/05/12/wannacrypt-ransomware-worm-targets-out-of-date-systems/",
+        "https://github.com/gentilkiwi/wanakiwi"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "GandCrab",
+      "aliases": [],
+      "decryptability_status": "AVAILABLE",
+      "exfiltration_risk": "unknown",
+      "note_filenames": [
+        "gdcb-decrypt.txt",
+        "krab-decrypt.txt",
+        "crab-decrypt.txt"
+      ],
+      "note_keywords": [],
+      "self_names": [
+        "gandcrab"
+      ],
+      "extensions": [
+        ".gdcb",
+        ".krab",
+        ".crab"
+      ],
+      "decryptors": [
+        "bitdefender-gandcrab"
+      ],
+      "summary": "Bitdefender's tool (via No More Ransom) supports V1, V4 and V5 up to V5.2. V2/V3 (.CRAB) are not covered.",
+      "preserve_advice": "Keep the ransom note; the decryptor needs it.",
+      "sources": [
+        "https://www.nomoreransom.org/en/decryption-tools.html#GandCrabV1V4andV5uptoV52versions",
+        "https://www.adaptivesecurity.com/blog/gandcrab-ransomware-timeline"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "REvil / Sodinokibi",
+      "aliases": [
+        "REvil",
+        "Sodinokibi"
+      ],
+      "decryptability_status": "AVAILABLE",
+      "exfiltration_risk": "high",
+      "note_filenames": [],
+      "note_keywords": [],
+      "self_names": [
+        "revil",
+        "sodinokibi"
+      ],
+      "extensions": [],
+      "decryptors": [
+        "bitdefender-revil"
+      ],
+      "summary": "Notes are named <random-ext>-readme.txt. Bitdefender's universal decryptor works only for files encrypted before July 13, 2021.",
+      "preserve_advice": "Establish when encryption happened; files from after July 13, 2021 are not covered.",
+      "sources": [
+        "https://www.bitdefender.com/en-us/blog/labs/bitdefender-offers-free-universal-decryptor-for-revil-sodinokibi-ransomware",
+        "https://www.zscaler.com/blogs/security-research/kaseya-supply-chain-ransomware-attack-technical-analysis-revil-payload"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "Avaddon",
+      "aliases": [],
+      "decryptability_status": "AVAILABLE",
+      "exfiltration_risk": "unknown",
+      "note_filenames": [],
+      "note_keywords": [],
+      "self_names": [
+        "avaddon"
+      ],
+      "extensions": [],
+      "decryptors": [
+        "avaddon-decryptors"
+      ],
+      "summary": "Uses a random extension. Free decryptors from Bitdefender and Emsisoft are listed on No More Ransom.",
+      "preserve_advice": "Test the decryptor on copies first.",
+      "sources": [
+        "https://www.nomoreransom.org/en/decryption-tools.html#Avaddon",
+        "https://www.emsisoft.com/en/ransomware-decryption/avaddon/"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "Royal / BlackSuit",
+      "aliases": [
+        "Royal",
+        "BlackSuit"
+      ],
+      "decryptability_status": "NONE_KNOWN",
+      "exfiltration_risk": "high",
+      "note_filenames": [
+        "readme.blacksuit.txt"
+      ],
+      "note_keywords": [
+        "extortioner named blacksuit"
+      ],
+      "self_names": [
+        "blacksuit"
+      ],
+      "extensions": [
+        ".royal",
+        ".royal_w"
+      ],
+      "decryptors": [],
+      "summary": "No free decryptor known. Royal used .royal/.royal_w and README.TXT; BlackSuit is its rebrand.",
+      "preserve_advice": "Preserve notes and evidence of data theft.",
+      "sources": [
+        "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-061a"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "Medusa",
+      "aliases": [],
+      "decryptability_status": "NONE_KNOWN",
+      "exfiltration_risk": "high",
+      "note_filenames": [
+        "!!!read_me_medusa!!!.txt"
+      ],
+      "note_keywords": [],
+      "self_names": [
+        "medusa"
+      ],
+      "extensions": [
+        ".medusa"
+      ],
+      "decryptors": [],
+      "summary": "No free decryptor known. Notes demand contact within 48 hours via Tor chat or Tox.",
+      "preserve_advice": "Preserve notes. Expect direct phone/email pressure from the actors.",
+      "sources": [
+        "https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "Qilin",
+      "aliases": [
+        "Agenda",
+        "Qilin.B"
+      ],
+      "decryptability_status": "NONE_KNOWN",
+      "exfiltration_risk": "high",
+      "note_filenames": [
+        "readme-recover-*.txt"
+      ],
+      "note_keywords": [
+        "encrypted files have new extension"
+      ],
+      "self_names": [
+        "qilin"
+      ],
+      "extensions": [],
+      "decryptors": [],
+      "summary": "No free decryptor known. The extension is a per-victim company ID that also appears in the note name (README-RECOVER-<id>.txt).",
+      "preserve_advice": "Preserve notes (they contain negotiation credentials) and evidence of exfiltration.",
+      "sources": [
+        "https://areteir.com/resources/malware-spotlight-qilin-ransomware",
+        "https://cyberscoop.com/wp-content/uploads/sites/3/2024/10/20241021-New-Qilin.B-Ransomware-Variant-September-2024-Halcyon-1.pdf"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "RansomHub",
+      "aliases": [],
+      "decryptability_status": "NONE_KNOWN",
+      "exfiltration_risk": "high",
+      "note_filenames": [
+        "how to restore your files.txt"
+      ],
+      "note_keywords": [],
+      "self_names": [
+        "ransomhub"
+      ],
+      "extensions": [],
+      "decryptors": [],
+      "summary": "No free decryptor known. Uses a random extension, and notes usually omit the ransom amount. Babuk uses the same note file name.",
+      "preserve_advice": "Preserve notes and evidence of exfiltration.",
+      "sources": [
+        "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-242a"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [
+        "\\.cts\\d$"
+      ],
+      "weak_extensions": [],
+      "family": "Cactus",
+      "aliases": [
+        "CACTUS"
+      ],
+      "decryptability_status": "NONE_KNOWN",
+      "exfiltration_risk": "high",
+      "note_filenames": [
+        "cactus.readme.txt"
+      ],
+      "note_keywords": [],
+      "self_names": [
+        "cactus"
+      ],
+      "extensions": [],
+      "decryptors": [],
+      "summary": "No free decryptor known. The note is cAcTuS.readme.txt and encrypted files end in .cts<digit>.",
+      "preserve_advice": "Check VPN appliances (a documented entry point) and preserve notes.",
+      "sources": [
+        "https://www.kroll.com/en/insights/publications/cyber/cactus-ransomware-prickly-new-variant-evades-detection"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "Clop",
+      "aliases": [
+        "Cl0p",
+        "CL0P"
+      ],
+      "decryptability_status": "NONE_KNOWN",
+      "exfiltration_risk": "high",
+      "note_filenames": [
+        "clopreadme.txt"
+      ],
+      "note_keywords": [
+        "this is the cl0p hacker group"
+      ],
+      "self_names": [
+        "cl0p",
+        "clop"
+      ],
+      "extensions": [
+        ".clop",
+        ".cllp"
+      ],
+      "decryptors": [],
+      "summary": "No free decryptor known. CISA says that since 2021 Cl0p has relied mostly on data theft rather than encryption (e.g. the MOVEit campaign), so there may be nothing to decrypt; treat it as a data breach.",
+      "preserve_advice": "Preserve emails or notes from the actors and file-transfer appliance logs.",
+      "sources": [
+        "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-158a",
+        "https://www.fortinet.com/blog/threat-research/ransomware-roundup-cl0p"
+      ],
+      "last_verified": "2026-10-08"
+    },
+    {
+      "extension_patterns": [],
+      "weak_extensions": [],
+      "family": "Destructive wiper (fake ransomware)",
+      "aliases": [
+        "WhisperGate",
+        "HermeticWiper",
+        "CaddyWiper"
+      ],
+      "decryptability_status": "WIPER",
+      "exfiltration_risk": "unknown",
+      "note_filenames": [],
+      "note_keywords": [
+        "your hard drive has been corrupted"
+      ],
+      "self_names": [
+        "whispergate",
+        "hermeticwiper",
+        "caddywiper"
+      ],
+      "extensions": [],
+      "decryptors": [],
+      "summary": "Wipers can pose as ransomware (WhisperGate shows a fake ransom note), but there is no key, so paying cannot restore data.",
+      "preserve_advice": "Restore from offline backups and report to national authorities.",
+      "sources": [
+        "https://www.cisa.gov/news-events/cybersecurity-advisories/aa22-057a",
+        "https://www.microsoft.com/en-us/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/"
+      ],
+      "last_verified": "2026-10-08"
+    }
+  ]
+}

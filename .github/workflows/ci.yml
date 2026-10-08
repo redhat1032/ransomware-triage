@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install optional test tooling
+        run: python -m pip install --upgrade pip ruff yara-python
+      - name: Lint
+        run: ruff check .
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Sample scans
+        run: |
+          python -m ransomtriage scan examples/stop-djvu --no-entropy
+          python -m ransomtriage scan examples/lockbit3 --format json > /dev/null
+          python -m ransomtriage identify examples/wannacry/@Please_Read_Me@.txt --format markdown > /dev/null
+      - name: Zipapp
+        run: |
+          python tools/build_standalone.py
+          python dist/ransomtriage.pyz list-families > /dev/null
+
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build and check distributions
+        run: |
+          python -m pip install --upgrade pip build twine
+          python -m build
+          twine check --strict dist/*
+      - name: Smoke-test the wheel
+        run: |
+          python -m pip install dist/*.whl
+          ransomtriage --version
+          ransomtriage identify examples/stop-djvu/_readme.txt > /dev/null

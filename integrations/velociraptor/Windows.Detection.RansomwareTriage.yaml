@@ -1,0 +1,44 @@
+name: Windows.Detection.RansomwareTriage
+description: |
+  Runs ransomtriage (https://github.com/redhat1032/ransomware-triage) on the endpoint against
+  TargetPath and returns its JSON triage report (family match, decryptor pointers, IOCs).
+  Analysis happens on the endpoint; only the report is collected by your Velociraptor server.
+
+  Requirements: Python 3.9+ on the endpoint. The release zipapp is pure Python and is
+  delivered as a Velociraptor tool (serve it locally from your server if endpoints have no
+  internet access).
+
+author: Douglas Weant
+type: CLIENT
+
+tools:
+  - name: RansomTriagePyz
+    url: https://github.com/redhat1032/ransomware-triage/releases/download/v0.3.0/ransomtriage.pyz
+    serve_locally: true
+
+parameters:
+  - name: TargetPath
+    default: C:\Users\
+    description: Directory to triage (the scan stops after 10,000 files).
+  - name: PythonExe
+    default: python.exe
+    description: Python 3.9+ interpreter on the endpoint (full path if it is not on PATH).
+  - name: SampleEntropy
+    type: bool
+    description: Also sample file entropy (slower).
+
+precondition: SELECT OS FROM info() WHERE OS = 'windows'
+
+sources:
+  - query: |
+      LET Bin <= SELECT OSPath FROM Artifact.Generic.Utils.FetchBinary(
+          ToolName="RansomTriagePyz", IsExecutable=FALSE)
+      LET ReportFile <= tempfile(extension=".json")
+      LET Pyz <= str(str=Bin[0].OSPath)
+      LET Argv <= if(condition=SampleEntropy,
+          then=[PythonExe, Pyz, "scan", TargetPath, "--format", "json", "--output", ReportFile],
+          else=[PythonExe, Pyz, "scan", TargetPath, "--format", "json", "--no-entropy", "--output", ReportFile])
+      LET Run <= SELECT * FROM execve(argv=Argv)
+      SELECT TargetPath AS Target,
+             parse_json(data=read_file(filename=ReportFile)) AS Report
+      FROM scope()

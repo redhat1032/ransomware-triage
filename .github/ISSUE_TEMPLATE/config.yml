@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: I am a ransomware victim and need help now
+    url: https://www.nomoreransom.org/
+    about: "This project can't decrypt files. Check No More Ransom and contact your national authority (US - cisa.gov/report, ic3.gov)."

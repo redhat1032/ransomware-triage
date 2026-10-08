@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ransomtriage"
+version = "0.3.0"
+description = "Offline, privacy-preserving first-hour ransomware triage: identify the family, extract IOCs, find free decryptors. Nothing is uploaded."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Douglas Weant", email = "doug@douglasweant.com" }]
+keywords = [
+    "ransomware",
+    "incident-response",
+    "dfir",
+    "triage",
+    "ransom-note",
+    "decryptor",
+    "ioc",
+    "threat-intelligence",
+    "yara",
+    "blue-team",
+    "forensics",
+    "no-more-ransom",
+    "cybersecurity",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: System :: Recovery Tools",
+    "Topic :: Utilities",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["ruff", "build", "twine", "yara-python"]
+
+[project.scripts]
+ransomtriage = "ransomtriage.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/redhat1032/ransomware-triage"
+Repository = "https://github.com/redhat1032/ransomware-triage"
+Issues = "https://github.com/redhat1032/ransomware-triage/issues"
+Changelog = "https://github.com/redhat1032/ransomware-triage/blob/main/CHANGELOG.md"
+
+[tool.setuptools]
+packages = ["ransomtriage"]
+
+[tool.setuptools.package-data]
+ransomtriage = ["signatures.json"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["UP006", "UP007", "UP035", "UP045"]
+
+[tool.ruff.lint.per-file-ignores]
+"tools/build_catalog.py" = ["E501"]

@@ -3,6 +3,14 @@
 All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Project
+- Added `release.yml`: builds the sdist and wheel, runs `twine check --strict`, and publishes to PyPI with Trusted
+  Publishing (OIDC, `pypi` environment). Runs on `release: published` or a manual dispatch with a tag input.
+- CI uses current Node 24 actions (`actions/checkout` v7, `actions/setup-python` v7), pinned to commit SHAs, with
+  credentials not persisted.
+
 ## [0.3.0] - 2026-10-08
 
 First public release.

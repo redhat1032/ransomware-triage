@@ -1,0 +1,75 @@
+name: Release to PyPI
+
+# Trusted Publishing (OIDC): no API tokens are stored in this repository.
+# PyPI pending publisher: project "ransomtriage", owner "redhat1032",
+# repo "ransomware-triage", workflow "release.yml", environment "pypi".
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Git tag to build and publish (e.g. v0.3.0)"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pypi-release
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build distributions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref }}
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Install build tools
+        run: python -m pip install --upgrade build twine
+      - name: Check version matches tag
+        env:
+          TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+        run: |
+          VERSION=$(python -c "import tomllib; print(tomllib.load(open('pyproject.toml','rb'))['project']['version'])")
+          echo "pyproject version: $VERSION, tag: $TAG"
+          test "v$VERSION" = "$TAG"
+      - name: Build sdist and wheel
+        run: python -m build
+      - name: Check distributions
+        run: python -m twine check --strict dist/*
+      - name: Smoke-test the wheel
+        run: |
+          python -m pip install dist/*.whl
+          ransomtriage --version
+      - name: Store the distributions
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7.0.2
+        with:
+          name: python-package-distributions
+          path: dist/
+          if-no-files-found: error
+
+  publish:
+    name: Publish to PyPI
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/ransomtriage
+    permissions:
+      id-token: write  # mandatory for Trusted Publishing
+    steps:
+      - name: Download the distributions
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333  # v8.0.2
+        with:
+          name: python-package-distributions
+          path: dist/
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33  # v1.14.2
